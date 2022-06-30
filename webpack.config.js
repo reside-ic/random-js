@@ -16,8 +16,8 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        library: 'interpolation',
-        filename: 'interpolation.js',
+        library: 'random',
+        filename: 'random.js',
         path: path.resolve(__dirname, 'dist'),
     },
 };
