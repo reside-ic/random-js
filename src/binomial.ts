@@ -1,5 +1,4 @@
 import type {RngState} from "./generator";
-import {randomReal} from "./generator";
 
 export function binomial(state: RngState, n: number, p: number) {
     if (n === 0 || p === 0) {
@@ -31,8 +30,8 @@ function btrs(state: RngState, n: number, p: number) {
 
     let draw;
     while (true) {
-        const u = randomReal(state) - 0.5;
-        let v = randomReal(state);
+        const u = state.random() - 0.5;
+        let v = state.random();
         const us = 0.5 - Math.abs(u);
         const k = Math.floor((2 * a / us + b) * u + c);
 
@@ -93,7 +92,7 @@ function stirlingApproxTailCalc(k: number) {
 function inversion(state: RngState, n: number, p: number) {
     let k = -1;
     do {
-        const u = randomReal(state);
+        const u = state.random();
         k = inversionCalc(u, n, p);
     } while (k < 0);
     return k;

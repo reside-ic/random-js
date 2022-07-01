@@ -1,8 +1,7 @@
 import type {RngState} from "./generator";
-import {randomReal} from "./generator";
 
 export function randomExponential(state: RngState) {
-    return -Math.log(randomReal(state));
+    return -Math.log(state.random());
 }
 
 export function exponential(state: RngState, rate: number) {
