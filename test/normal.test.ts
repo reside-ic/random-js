@@ -1,7 +1,7 @@
-import {RngStateBuiltin} from "../src/state-builtin";
 import {normal, randomNormal} from "../src/normal";
+import {RngStateBuiltin} from "../src/state-builtin";
 
-import {approxEqual, mean, mockRandomState, repeat, sd, variance} from "./helpers";
+import {approxEqual, mean, repeat, sd, variance} from "./helpers";
 import "./matchers";
 
 describe("normal random numbers", () => {

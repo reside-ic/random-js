@@ -1,7 +1,7 @@
-import {RngStateBuiltin} from "../src/state-builtin";
 import {exponential, randomExponential} from "../src/exponential";
+import {RngStateBuiltin} from "../src/state-builtin";
 
-import {approxEqual, mean, mockRandomState, repeat, sd, variance} from "./helpers";
+import {approxEqual, mean, repeat, sd, variance} from "./helpers";
 import "./matchers";
 
 describe("exponential random numbers", () => {
@@ -20,4 +20,4 @@ describe("exponential random numbers", () => {
         expect(mean(res)).toApproxEqual(1 / rate, 1e-2);
         expect(variance(res)).toApproxEqual(1 / (rate * rate), 1e-2);
     });
-})
+});

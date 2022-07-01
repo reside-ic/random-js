@@ -1,5 +1,5 @@
-import {RngStateBuiltin} from "../src/state-builtin";
 import {binomial} from "../src/binomial";
+import {RngStateBuiltin} from "../src/state-builtin";
 
 import {approxEqual, mean, repeat, variance} from "./helpers";
 import "./matchers";

@@ -40,16 +40,3 @@ export function approxEqual(x: number, y: number, tolerance?: number) {
     }
     return xy < tolerance;
 }
-
-export class mockRandomState extends RngState {
-    private pos: number;
-    private stream: number[];
-    constructor(stream: number[]) {
-        super();
-        this.stream = stream;
-        this.pos = 0;
-    }
-    public random() {
-        return this.stream[this.pos++];
-    }
-}

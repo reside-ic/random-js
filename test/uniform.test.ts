@@ -19,5 +19,5 @@ describe("Generate uniform random numbers from expected distribution", () => {
         expect(variance(u)).toApproxEqual(1 / 3, 1e-2);
         expect(Math.min(...u)).toBeGreaterThanOrEqual(2);
         expect(Math.max(...u)).toBeLessThanOrEqual(4);
-    })
+    });
 });

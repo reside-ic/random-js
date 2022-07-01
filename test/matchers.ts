@@ -1,13 +1,14 @@
 // https://github.com/facebook/jest/blob/main/packages/expect/src/matchers.ts
 // https://haspar.us/notes/adding-jest-custom-matchers-in-typescript
-import {approxEqual} from "./helpers";
 import {
-    MatcherHintOptions,
     getLabelPrinter,
     matcherHint,
+    MatcherHintOptions,
     printExpected,
-    printReceived
+    printReceived,
 } from "jest-matcher-utils";
+
+import {approxEqual} from "./helpers";
 
 declare global {
   namespace jest {
@@ -30,7 +31,7 @@ expect.extend({
             const options: MatcherHintOptions = {
                 isNot,
                 promise: this.promise,
-                secondArgument: tolerance ? tolerance.toString() : ""
+                secondArgument: tolerance ? tolerance.toString() : "",
             };
 
             const hint = matcherHint(name, "number", "number", options) +
@@ -45,10 +46,8 @@ expect.extend({
                     (isNot ? "    " : " ") +
                     printReceived(received)
             );
-
-
         };
 
         return {message, pass};
-    }
+    },
 });
