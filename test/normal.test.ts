@@ -1,4 +1,4 @@
-import {RngStateBuiltin} from "../src/state";
+import {RngStateBuiltin} from "../src/state-builtin";
 import {normal, randomNormal} from "../src/normal";
 
 import {approxEqual, mean, mockRandomState, repeat, sd, variance} from "./helpers";

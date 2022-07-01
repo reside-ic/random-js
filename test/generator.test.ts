@@ -1,4 +1,4 @@
-import {RngStateBuiltin} from "../src/state";
+import {RngStateBuiltin} from "../src/state-builtin";
 
 describe("Builtin generator", () => {
     const state = new RngStateBuiltin();

@@ -10,12 +10,3 @@ export abstract class RngState {
         throw Error("This generator cannot be long-jumped");
     }
 }
-
-export class RngStateBuiltin extends RngState {
-    constructor() {
-        super();
-    }
-    public random() {
-        return Math.random();
-    }
-}

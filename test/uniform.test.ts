@@ -1,4 +1,4 @@
-import {RngStateBuiltin} from "../src/state";
+import {RngStateBuiltin} from "../src/state-builtin";
 import {randomUniform, uniform} from "../src/uniform";
 
 import {mean, repeat, variance} from "./helpers";
