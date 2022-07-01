@@ -12,14 +12,4 @@ describe("Builtin generator", () => {
         expect(() => state.setSeed(1))
             .toThrow("This generator cannot be seeded");
     });
-
-    it("Cannot be jumped", () => {
-        expect(() => state.jump())
-            .toThrow("This generator cannot be jumped");
-    });
-
-    it("Cannot be long-jumped", () => {
-        expect(() => state.longJump())
-            .toThrow("This generator cannot be long-jumped");
-    });
 });

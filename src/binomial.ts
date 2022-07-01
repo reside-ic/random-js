@@ -1,5 +1,17 @@
 import type {RngState} from "./state";
 
+/**
+ * Generate a binomially-distributed random number; the number of
+ * successes in `n` trials each with probability `p`. The
+ * implementation here switches between two different algorithms when
+ * `n * p` becomes large (10).
+ *
+ * @param state Random number state
+ *
+ * @param n Number of trials
+ *
+ * @param p Per-trial probability of success
+ */
 export function binomial(state: RngState, n: number, p: number) {
     if (n === 0 || p === 0) {
         return 0;

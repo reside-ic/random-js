@@ -2,6 +2,15 @@ import type {RngState} from "./state";
 
 import {lngamma} from "ieee745gamma";
 
+/**
+ * Generate Poisson distributed random number. This implementation
+ * switches between two algorithms (Knuth's and Hormann's) as `lambda`
+ * gets large (10).
+ *
+ * @param state Random number state
+ *
+ * @param lambda The mean (and variance!) of the distribution
+ */
 export function poisson(state: RngState, lambda: number) {
     return lambda < 10 ?
         poissonKnuth(state, lambda) :
