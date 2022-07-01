@@ -1,4 +1,4 @@
-import type {RngState} from "./generator";
+import type {RngState} from "./state";
 
 export function randomUniform(state: RngState) {
     return state.random();

@@ -1,4 +1,4 @@
-export {RngState, RngStateBuiltin} from "./generator";
+export {RngState, RngStateBuiltin} from "./state";
 
 export {binomial} from "./binomial";
 export {exponential, randomExponential} from "./exponential";

@@ -1,4 +1,4 @@
-import type {RngState} from "./generator";
+import type {RngState} from "./state";
 
 export function randomExponential(state: RngState) {
     return -Math.log(state.random());

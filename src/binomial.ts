@@ -1,4 +1,4 @@
-import type {RngState} from "./generator";
+import type {RngState} from "./state";
 
 export function binomial(state: RngState, n: number, p: number) {
     if (n === 0 || p === 0) {
@@ -110,12 +110,6 @@ function inversionCalc(u: number, n: number, p: number) {
         u -= f;
         k++;
         f *= (g / k - r);
-        if (f === fPrev || k > n) {
-            // This catches an issue seen running with floats where we end
-            // up unable to decrease 'f' because we've run out of
-            // precision. In this case we'll try again with a better u
-            return -1;
-        }
         fPrev = f;
     }
 
