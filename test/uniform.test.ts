@@ -15,7 +15,7 @@ describe("Generate uniform random numbers from expected distribution", () => {
     it("Can scale", () => {
         const state = new RngStateBuiltin();
         const u = repeat<number>(() => uniform(state, 2, 4), 100000);
-        expect(mean(u)).toApproxEqual(3, 1e-3);
+        expect(mean(u)).toApproxEqual(3, 1e-2);
         expect(variance(u)).toApproxEqual(1 / 3, 1e-2);
         expect(Math.min(...u)).toBeGreaterThanOrEqual(2);
         expect(Math.max(...u)).toBeLessThanOrEqual(4);
