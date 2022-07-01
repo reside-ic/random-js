@@ -77,10 +77,10 @@ function poissonHormann(state: RngState, lambda: number) {
     while (true) {
         let u = state.random();
         u -= 0.5;
-        let v = state.random();
+        const v = state.random();
 
-        let uShifted = 0.5 - Math.abs(u);
-        let k = Math.floor((2 * a / uShifted + b) * u + lambda + 0.43);
+        const uShifted = 0.5 - Math.abs(u);
+        const k = Math.floor((2 * a / uShifted + b) * u + lambda + 0.43);
 
         // When alpha * f(G(U)) * G'(U) is close to 1, it is possible to
         // find a rectangle (-u_r, u_r) x (0, v_r) under the curve, such
@@ -97,8 +97,8 @@ function poissonHormann(state: RngState, lambda: number) {
 
         // The expression below is equivalent to the computation of step 2)
         // in transformed rejection (v <= alpha * F'(G(u)) * G'(u)).
-        let s = Math.log(v * invAlpha / (a / (uShifted * uShifted) + b));
-        let t = -lambda + k * logRate -lngamma(k + 1);
+        const s = Math.log(v * invAlpha / (a / (uShifted * uShifted) + b));
+        const t = -lambda + k * logRate - lngamma(k + 1);
         if (s <= t) {
             x = k;
             break;
