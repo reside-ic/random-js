@@ -5,7 +5,11 @@ const twoPi = 2 * pi;
 
 /** Generate a normally-distributed random number from the standard
  * normal distribution (mean 0, sd 1), use {@link normal} to generate
- * values with different mean and standard deviation
+ * values with different mean and standard deviation.
+ *
+ * The algorithm used is the
+ * [Box-Muller](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform)
+ * transform
  *
  * @param state Random number state
  */
