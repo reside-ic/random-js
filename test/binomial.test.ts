@@ -6,7 +6,7 @@ import "./matchers";
 
 describe("binomial random numbers", () => {
     const state = new RngStateBuiltin();
-    it("generates with expected mean and variance", () => {
+    it("generates with expected mean and variance when n * p is large", () => {
         const m = 100000;
         const n = 100;
         const p = 0.1;
@@ -31,7 +31,7 @@ describe("binomial random numbers", () => {
             .toEqual(Array(m).fill(n));
     });
 
-    it("generates binomial numbers via inversion", () => {
+    it("generates with expected mean and variance when n * p is small", () => {
         const m = 500000;
         const n = 20;
         const p = 0.8;

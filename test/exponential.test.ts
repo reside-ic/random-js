@@ -13,7 +13,7 @@ describe("exponential random numbers", () => {
         expect(variance(res)).toApproxEqual(1, 1e-2);
     });
 
-    it("generates std distribution with expected mean and variance", () => {
+    it("generates general distribution with expected mean and variance", () => {
         const n = 1000000;
         const rate = 0.04;
         const res = repeat<number>(() => exponential(state, rate), n);
