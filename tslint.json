@@ -5,6 +5,7 @@
     ],
     "jsRules": {},
     "rules": {
+        "no-bitwise": false,
         "interface-name": [true, "never-prefix"],
         "variable-name": [true, "allow-leading-underscore"]
     },
