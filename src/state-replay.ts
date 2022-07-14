@@ -23,13 +23,7 @@ export class RngStateReplay extends RngState {
         return ret;
     }
 
-    public clone(this: RngStateReplay) {
-        const ret = new RngStateReplay(this._values);
-        ret._i = this._i;
-        return ret;
-    }
-
     public length() {
-        return this._values.length - i;
+        return this._values.length - this._i;
     }
 }
