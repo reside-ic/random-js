@@ -1,5 +1,7 @@
 export {RngState} from "./state";
 export {RngStateBuiltin} from "./state-builtin";
+export {RngStateObserved} from "./state-observed";
+export {RngStateReplay} from "./state-replay";
 
 export {binomial} from "./binomial";
 export {exponential, randomExponential} from "./exponential";
