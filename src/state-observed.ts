@@ -4,7 +4,7 @@ import {RngStateReplay} from "./state-replay";
 
 export class RngStateObserved extends RngState {
     private readonly _state: RngState;
-    private readonly _values: number[]
+    private readonly _values: number[];
 
     /**
      * Optionally, a random number state - if not given we default
