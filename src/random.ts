@@ -1,10 +1,10 @@
-import {RngState} from "./state";
+import { RngState } from "./state";
 
-import {binomial} from "./binomial";
-import {exponential, randomExponential} from "./exponential";
-import {normal, randomNormal} from "./normal";
-import {poisson} from "./poisson";
-import {randomUniform, uniform} from "./uniform";
+import { binomial } from "./binomial";
+import { exponential, randomExponential } from "./exponential";
+import { normal, randomNormal } from "./normal";
+import { poisson } from "./poisson";
+import { randomUniform, uniform } from "./uniform";
 
 /**
  * Generate random numbers. This provides a single object that can be
@@ -67,6 +67,13 @@ export class Random {
      */
     public normal(mean: number, sd: number) {
         return normal(this.state, mean, sd);
+    }
+
+    /** Generate a Poisson distributed random number ({@link poisson})
+     * @param lambda The mean of the distribution
+     */
+    public poisson(lambda: number) {
+        return poisson(this.state, lambda);
     }
 
     /** Generate a uniformly distributed random number ({@link uniform})
