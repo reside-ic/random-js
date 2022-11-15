@@ -16,4 +16,12 @@ export abstract class RngState {
     public setSeed(seed: any) {
         throw Error("This generator cannot be seeded (really!)");
     }
+    /** Get the entire internal state of a generator */
+    public getState(): any {
+        throw Error("This generator cannot return its state");
+    }
+    /** Replace the entire internal state of a generator */
+    public setState(state: any) {
+        throw Error("This generator set its state");
+    }
 }
