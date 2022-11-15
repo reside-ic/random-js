@@ -5,7 +5,7 @@ describe("can generate random numbers", () => {
     it("generates known case", () => {
         // just generate two numbers and show they're different and
         // that they don't change; this should always just hold.
-        const s = new RngStateAlea([42]);
+        const s = new RngStateAlea(42);
         const u1 = s.random();
         const u2 = s.random();
         expect(u1).toBe(0.6848634963389486);
@@ -19,31 +19,31 @@ describe("can generate random numbers", () => {
     });
 
     it("requires at most one of seed and state to initialise", () => {
-        expect(() => new RngStateAlea([42], [1, 2, 3, 4]))
+        expect(() => new RngStateAlea(42, [1, 2, 3, 4]))
             .toThrow("Can't provide both initial seed and state");
     });
 
     it("requires that state is correct length", () => {
-        expect(() => new RngStateAlea([], [1, 2, 3]))
+        expect(() => new RngStateAlea(null, [1, 2, 3]))
             .toThrow("Expected state to have length 4 (but was 3)");
     });
 
     it("can extract state from generator and seed a new one", () => {
-        const s1 = new RngStateAlea([42]);
+        const s1 = new RngStateAlea(42);
         const x1 = s1.getState();
-        const s2 = new RngStateAlea([], x1);
+        const s2 = new RngStateAlea(null, x1);
         expect(s1.getState()).toEqual(s2.getState());
         expect(s1.random()).toBe(s2.random());
     });
 
     it("can prevent negative values in seed coefficient", () => {
-        const s = new RngStateAlea([0.9398027063099774]);
+        const s = new RngStateAlea(0.9398027063099774);
         const state = s.getState();
         expect(state[0]).toBeGreaterThan(0);
     });
 
     it("generates numbers with the correct distribution", () => {
-        const s = new RngStateAlea([42]);
+        const s = new RngStateAlea(42);
         const n = 1000000;
         let x = 0;
         let x2 = 0;

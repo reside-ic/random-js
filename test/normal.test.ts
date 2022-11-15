@@ -16,7 +16,7 @@ describe("normal random numbers", () => {
     });
 
     it("generates with expected mean and variance", () => {
-        const n = 100000;
+        const n = 200000;
         const res = repeat<number>(() => normal(state, 2, 5), n);
         expect(mean(res)).toApproxEqual(2, 1e-2);
         expect(sd(res)).toApproxEqual(5, 1e-2);

@@ -1,14 +1,19 @@
 import { RngState } from "./state";
 
-// Two reference implementations:
+// The original was here
+// http://baagoe.com/en/RandomMusings/javascript/ but seems to have
+// dropped off the internet, some context exists here
+// https://web.archive.org/web/20100712063034/http://baagoe.com/en/RandomMusings/javascript/
+//
+// I can find two vanilla js versions:
 //
 // https://github.com/macmcmeans/aleaPRNG/blob/master/aleaPRNG-1.1.js
 // https://github.com/coverslide/node-alea/blob/master/alea.js
 //
-// The original seems to have dropped off the internet, and I can't
-// see a simple impementation with types. As usual, most of the
-// complication is in the initialisation, which uses another prng or
-// streaming hash function.
+// on which this implementation is based, but in TypeScript
+//
+// As usual, most of the complication is in the initialisation, which
+// uses another prng implemented as a hash function.
 
 const TWO_POS_32 = 0x100000000; // 2^32
 const TWO_NEG_32 = 2.3283064365386963e-10; // 2^-32
@@ -31,9 +36,6 @@ export function masher() {
 }
 
 function aleaInitialState(seed: any[]): number[] {
-    if (seed.length === 0) {
-        seed = [Math.random()];
-    }
     const mash = masher();
     let s0 = mash(" ");
     let s1 = mash(" ");
@@ -61,6 +63,11 @@ function aleaInitialState(seed: any[]): number[] {
     return [s0, s1, s2, c];
 }
 
+/**
+ * Random number generator based on the "Alea" algorithm of Johannes
+ * Baagøe; designed to produce acceptable quality random numbers at a
+ * reasonable speed given limitations of JavaScript's numbers.
+ */
 export class RngStateAlea extends RngState {
     // The compiler can't work out that these are definitely assigned,
     // but they are, via setState() (eventually).
@@ -69,9 +76,21 @@ export class RngStateAlea extends RngState {
     private s2!: number;
     private c!: number;
 
-    constructor(seed: any[] = [], state?: number[]) {
+    /**
+     * The generator can be started from a "seed" (some small piece of
+     * data from which we'll derive a state) or from a state.
+     *
+     * @param seed An initial seed; any truthy value will do. If not
+     * given (and if `state` is not given, then we seed using
+     * `Math.random()`
+     *
+     * @param state A state extracted from a previously initialised
+     * copy of an `RngStateAlea` generator; will be a length 4
+     * array. If given, then sed must be `null`.
+     */
+    constructor(seed: any = null, state?: number[]) {
         super();
-        const hasSeed = seed.length > 0;
+        const hasSeed = seed !== null;
         const hasInitialState = state !== undefined;
         if (hasSeed && hasInitialState) {
             throw Error("Can't provide both initial seed and state");
@@ -90,8 +109,8 @@ export class RngStateAlea extends RngState {
         return this.s2 = t - (this.c = t | 0);
     }
 
-    public setSeed(seed: any[]) {
-        const state = aleaInitialState(seed);
+    public setSeed(seed: any) {
+        const state = aleaInitialState([seed || Math.random()]);
         this.setState(state);
     }
 

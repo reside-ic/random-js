@@ -1,5 +1,6 @@
 export {Random} from "./random";
 export {RngState} from "./state";
+export {RngStateAlea} from "./state-alea";
 export {RngStateBuiltin} from "./state-builtin";
 export {RngStateObserved} from "./state-observed";
 export {RngStateReplay} from "./state-replay";
