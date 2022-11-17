@@ -86,7 +86,7 @@ export class RngStateAlea extends RngState {
      *
      * @param state A state extracted from a previously initialised
      * copy of an `RngStateAlea` generator; will be a length 4
-     * array. If given, then sed must be `null`.
+     * array. If given, then seed must be `null`.
      */
     constructor(seed: any = null, state?: number[]) {
         super();
