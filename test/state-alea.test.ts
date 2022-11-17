@@ -40,6 +40,8 @@ describe("can generate random numbers", () => {
         const s = new RngStateAlea(0.9398027063099774);
         const state = s.getState();
         expect(state[0]).toBeGreaterThan(0);
+        expect(state[1]).toBeGreaterThan(0);
+        expect(state[2]).toBeGreaterThan(0);
     });
 
     it("generates numbers with the correct distribution", () => {
