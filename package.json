@@ -26,6 +26,7 @@
     "homepage": "https://github.com/reside-ic/random-js#readme",
     "devDependencies": {
         "@types/jest": "^27.5.1",
+        "alea": "^1.0.1",
         "jest": "^28.0.0",
         "ts-jest": "^28.0.0",
         "ts-loader": "^9.3.0",

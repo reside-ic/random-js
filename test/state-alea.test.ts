@@ -1,6 +1,8 @@
 import { RngStateAlea, masher } from "../src/state-alea";
 import "./matchers";
 
+const aleaReference = require("alea");
+
 describe("can generate random numbers", () => {
     it("generates known case", () => {
         // just generate two numbers and show they're different and
@@ -58,6 +60,16 @@ describe("can generate random numbers", () => {
         const variance = x2 / n - mean * mean; // E(x^2) - E(x)^2
         expect(mean).toApproxEqual(0.5, 1e-3);
         expect(variance).toApproxEqual(1 / 12, 1e-2);
+    });
+
+    it("agrees with reference implementation", () => {
+        const ref = aleaReference([42]);
+        const state = new RngStateAlea(42);
+        expect(state.getState()).toEqual(ref.exportState());
+        expect(state.random()).toEqual(ref.next());
+        expect(state.random()).toEqual(ref.next());
+        expect(state.random()).toEqual(ref.next());
+        expect(state.getState()).toEqual(ref.exportState());
     });
 });
 
