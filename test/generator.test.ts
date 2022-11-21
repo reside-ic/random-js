@@ -12,4 +12,14 @@ describe("Builtin generator", () => {
         expect(() => state.setSeed(1))
             .toThrow("This generator cannot be seeded");
     });
+
+    it("Cannot return state", () => {
+        expect(() => state.getState())
+            .toThrow("This generator cannot return its state");
+    });
+
+    it("Cannot set state", () => {
+        expect(() => state.setState(null))
+            .toThrow("This generator set its state");
+    });
 });
