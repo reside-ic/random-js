@@ -2,13 +2,14 @@
     "name": "@reside-ic/random",
     "version": "0.0.4",
     "description": "Random numbers",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
+    "type": "module",
+    "main": "dist/random.js",
+    "types": "dist/index.d.ts",
     "files": [
-        "/lib"
+        "/dist"
     ],
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && vite build",
         "webpack": "webpack",
         "test": "jest -c jest.config.js",
         "lint": "tslint -c tslint.json 'src/**/*.ts'",
@@ -34,7 +35,9 @@
         "typedoc": "^0.23.1",
         "typescript": "^4.2.0",
         "webpack": "^5.72.1",
-        "webpack-cli": "^4.9.2"
+        "webpack-cli": "^4.9.2",
+        "vite": "^6.1.0",
+        "vite-plugin-dts": "^4.5.0"
     },
     "dependencies": {
         "ieee745gamma": "^1.0.1"

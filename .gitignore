@@ -1,7 +1,7 @@
 node_modules
-dist
-lib
+libEXAMPLE
 .nyc_output
+.idea
 coverage
 *.tgz
 docs

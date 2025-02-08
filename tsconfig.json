@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
         "target": "esnext",
-        "module": "commonjs",
+        "module": "esnext",
         "esModuleInterop": true,
         "declaration": true,
-        "outDir": "./lib",
+        "noEmit": true,
         "moduleResolution": "node",
         "sourceMap": true,
         "strict": true
