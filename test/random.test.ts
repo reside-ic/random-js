@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { Random } from "../src/random";
 import { RngStateObserved } from "../src/state-observed";
 

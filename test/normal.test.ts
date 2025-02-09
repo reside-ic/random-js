@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import {normal, randomNormal} from "../src/normal";
 import {RngStateBuiltin} from "../src/state-builtin";
 

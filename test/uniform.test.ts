@@ -1,5 +1,6 @@
 import {RngStateBuiltin} from "../src/state-builtin";
 import {randomUniform, uniform} from "../src/uniform";
+import {describe, it, expect} from "vitest";
 
 import {mean, repeat, variance} from "./helpers";
 import "./matchers";

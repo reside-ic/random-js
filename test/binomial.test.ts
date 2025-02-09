@@ -1,6 +1,6 @@
 import {binomial} from "../src/binomial";
 import {RngStateBuiltin} from "../src/state-builtin";
-
+import {describe, it, expect} from "vitest";
 import {approxEqual, mean, repeat, variance} from "./helpers";
 import "./matchers";
 

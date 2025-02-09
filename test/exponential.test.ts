@@ -1,3 +1,4 @@
+import {describe, it, expect} from "vitest";
 import {exponential, randomExponential} from "../src/exponential";
 import {RngStateBuiltin} from "../src/state-builtin";
 

@@ -1,3 +1,4 @@
+import {describe, it, expect} from "vitest";
 import {RngStateBuiltin} from "../src/state-builtin";
 
 describe("Builtin generator", () => {

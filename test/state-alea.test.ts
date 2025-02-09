@@ -1,4 +1,5 @@
 import { RngStateAlea, masher } from "../src/state-alea";
+import { describe, it, expect } from "vitest";
 import "./matchers";
 
 const aleaReference = require("alea");

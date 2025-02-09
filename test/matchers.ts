@@ -1,5 +1,3 @@
-// https://github.com/facebook/jest/blob/main/packages/expect/src/matchers.ts
-// https://haspar.us/notes/adding-jest-custom-matchers-in-typescript
 import {
     getLabelPrinter,
     matcherHint,
@@ -7,16 +5,9 @@ import {
     printExpected,
     printReceived,
 } from "jest-matcher-utils";
-
+import { expect } from "vitest";
 import {approxEqual} from "./helpers";
 
-declare global {
-  namespace jest {
-    interface Matchers<R> {
-        toApproxEqual(expected: number, tolerance?: number): R;
-    }
-  }
-}
 
 expect.extend({
     toApproxEqual(received: any, expected: any, tolerance?: number) {

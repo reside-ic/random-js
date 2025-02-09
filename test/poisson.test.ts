@@ -1,3 +1,5 @@
+import {describe, it, expect} from "vitest";
+
 import {poisson} from "../src/poisson";
 import {RngStateBuiltin} from "../src/state-builtin";
 
