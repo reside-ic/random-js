@@ -19,6 +19,7 @@ jobs:
             - run: npm run-script build
             - run: npm run coverage
             - run: npm run lint
+            - run: npm run format-check
             - run: npm run docs
             - uses: codecov/codecov-action@v4
               with:
