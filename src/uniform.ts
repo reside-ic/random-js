@@ -1,4 +1,4 @@
-import type {RngState} from "./state";
+import type { RngState } from "./state";
 
 /**
  * Generate a uniformly distributed random number from the standard

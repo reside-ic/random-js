@@ -1,4 +1,4 @@
-import type {RngState} from "./state";
+import type { RngState } from "./state";
 
 const pi = Math.PI;
 const twoPi = 2 * pi;

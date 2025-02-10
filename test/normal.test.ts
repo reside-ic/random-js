@@ -1,7 +1,8 @@
-import {normal, randomNormal} from "../src/normal";
-import {RngStateBuiltin} from "../src/state-builtin";
+import { describe, it, expect } from "vitest";
+import { normal, randomNormal } from "../src/normal";
+import { RngStateBuiltin } from "../src/state-builtin";
 
-import {approxEqual, mean, repeat, sd, variance} from "./helpers";
+import { approxEqual, mean, repeat, sd, variance } from "./helpers";
 import "./matchers";
 
 describe("normal random numbers", () => {

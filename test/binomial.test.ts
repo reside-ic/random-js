@@ -1,7 +1,7 @@
-import {binomial} from "../src/binomial";
-import {RngStateBuiltin} from "../src/state-builtin";
-
-import {approxEqual, mean, repeat, variance} from "./helpers";
+import { binomial } from "../src/binomial";
+import { RngStateBuiltin } from "../src/state-builtin";
+import { describe, it, expect } from "vitest";
+import { approxEqual, mean, repeat, variance } from "./helpers";
 import "./matchers";
 
 describe("binomial random numbers", () => {
@@ -23,12 +23,9 @@ describe("binomial random numbers", () => {
         const n = 100;
         const p = 0.1;
 
-        expect(repeat<number>(() => binomial(state, 0, p), m))
-            .toEqual(Array(m).fill(0));
-        expect(repeat<number>(() => binomial(state, n, 0), m))
-            .toEqual(Array(m).fill(0));
-        expect(repeat<number>(() => binomial(state, n, 1), m))
-            .toEqual(Array(m).fill(n));
+        expect(repeat<number>(() => binomial(state, 0, p), m)).toEqual(Array(m).fill(0));
+        expect(repeat<number>(() => binomial(state, n, 0), m)).toEqual(Array(m).fill(0));
+        expect(repeat<number>(() => binomial(state, n, 1), m)).toEqual(Array(m).fill(n));
     });
 
     it("generates with expected mean and variance when n * p is small", () => {

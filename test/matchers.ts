@@ -1,24 +1,9 @@
-// https://github.com/facebook/jest/blob/main/packages/expect/src/matchers.ts
-// https://haspar.us/notes/adding-jest-custom-matchers-in-typescript
-import {
-    getLabelPrinter,
-    matcherHint,
-    MatcherHintOptions,
-    printExpected,
-    printReceived,
-} from "jest-matcher-utils";
-
-import {approxEqual} from "./helpers";
-
-declare global {
-  namespace jest {
-    interface Matchers<R> {
-        toApproxEqual(expected: number, tolerance?: number): R;
-    }
-  }
-}
+import { getLabelPrinter, matcherHint, MatcherHintOptions, printExpected, printReceived } from "jest-matcher-utils";
+import { expect } from "vitest";
+import { approxEqual } from "./helpers";
 
 expect.extend({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     toApproxEqual(received: any, expected: any, tolerance?: number) {
         const pass = approxEqual(received, expected, tolerance);
 
@@ -31,23 +16,22 @@ expect.extend({
             const options: MatcherHintOptions = {
                 isNot,
                 promise: this.promise,
-                secondArgument: tolerance ? tolerance.toString() : "",
+                secondArgument: tolerance ? tolerance.toString() : ""
             };
 
-            const hint = matcherHint(name, "number", "number", options) +
-                "\n\n";
+            const hint = matcherHint(name, "number", "number", options) + "\n\n";
             return (
                 hint +
-                    printLabel(labelExpected) +
-                    (isNot ? "not " : " ") +
-                    printExpected(expected) +
-                    "\n" +
-                    printLabel(labelReceived) +
-                    (isNot ? "    " : " ") +
-                    printReceived(received)
+                printLabel(labelExpected) +
+                (isNot ? "not " : " ") +
+                printExpected(expected) +
+                "\n" +
+                printLabel(labelReceived) +
+                (isNot ? "    " : " ") +
+                printReceived(received)
             );
         };
 
-        return {message, pass};
-    },
+        return { message, pass };
+    }
 });

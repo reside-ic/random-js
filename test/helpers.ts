@@ -1,5 +1,3 @@
-import {RngState} from "../src/state";
-
 export function repeat<T>(f: () => T, n: number) {
     const ret = [];
     for (let i = 0; i < n; ++i) {

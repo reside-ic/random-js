@@ -1,7 +1,9 @@
-import {poisson} from "../src/poisson";
-import {RngStateBuiltin} from "../src/state-builtin";
+import { describe, it, expect } from "vitest";
 
-import {approxEqual, mean, repeat, sd, variance} from "./helpers";
+import { poisson } from "../src/poisson";
+import { RngStateBuiltin } from "../src/state-builtin";
+
+import { approxEqual, mean, repeat, sd, variance } from "./helpers";
 import "./matchers";
 
 describe("poisson random numbers", () => {

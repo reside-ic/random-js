@@ -1,6 +1,6 @@
-import {RngState} from "./state";
-import {RngStateBuiltin} from "./state-builtin";
-import {RngStateReplay} from "./state-replay";
+import { RngState } from "./state";
+import { RngStateBuiltin } from "./state-builtin";
+import { RngStateReplay } from "./state-replay";
 
 export class RngStateObserved extends RngState {
     private readonly _state: RngState;

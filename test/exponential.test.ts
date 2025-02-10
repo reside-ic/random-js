@@ -1,7 +1,8 @@
-import {exponential, randomExponential} from "../src/exponential";
-import {RngStateBuiltin} from "../src/state-builtin";
+import { describe, it, expect } from "vitest";
+import { exponential, randomExponential } from "../src/exponential";
+import { RngStateBuiltin } from "../src/state-builtin";
 
-import {approxEqual, mean, repeat, sd, variance} from "./helpers";
+import { approxEqual, mean, repeat, sd, variance } from "./helpers";
 import "./matchers";
 
 describe("exponential random numbers", () => {
