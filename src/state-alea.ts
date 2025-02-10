@@ -35,6 +35,7 @@ export function masher() {
     };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function aleaInitialState(seed: any[]): number[] {
     const mash = masher();
     let s0 = mash(" ");
@@ -88,6 +89,7 @@ export class RngStateAlea extends RngState {
      * copy of an `RngStateAlea` generator; will be a length 4
      * array. If given, then seed must be `null`.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     constructor(seed: any = null, state?: number[]) {
         super();
         const hasSeed = seed !== null;
@@ -109,6 +111,7 @@ export class RngStateAlea extends RngState {
         return this.s2 = t - (this.c = t | 0);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public setSeed(seed: any) {
         const state = aleaInitialState([seed || Math.random()]);
         this.setState(state);

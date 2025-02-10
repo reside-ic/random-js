@@ -2,7 +2,7 @@ import { RngStateAlea, masher } from "../src/state-alea";
 import { describe, it, expect } from "vitest";
 import "./matchers";
 
-const aleaReference = require("alea");
+import aleaReference from "alea";
 
 describe("can generate random numbers", () => {
     it("generates known case", () => {

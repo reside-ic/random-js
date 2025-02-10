@@ -120,12 +120,10 @@ function inversionCalc(u: number, n: number, p: number) {
     let f = Math.pow(q, n);
     let k = 0;
 
-    let fPrev = f;
     while (u >= f) {
         u -= f;
         k++;
         f *= (g / k - r);
-        fPrev = f;
     }
 
     return k;

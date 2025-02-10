@@ -10,6 +10,7 @@ import {approxEqual} from "./helpers";
 
 
 expect.extend({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     toApproxEqual(received: any, expected: any, tolerance?: number) {
         const pass = approxEqual(received, expected, tolerance);
 
