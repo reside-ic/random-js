@@ -1,5 +1,5 @@
 node_modules
-libEXAMPLE
+dist
 .nyc_output
 .idea
 coverage

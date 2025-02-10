@@ -12,7 +12,7 @@ Random numbers are slippery things, particularly if you want to use them. This p
 
 **We include different underlying generators, and a simple interface that can adapt to new generators**. We provide a abstract `RngState` class and several different concrete versions of this.
 
-The distribution support is curently poor (binomial, exponential, normal, Poisson and uniform) but will expand this as we need them. We try and reference the underlying papers clearly so that these algorithms are as clear as possible.
+The distribution support is currently poor (binomial, exponential, normal, Poisson and uniform) but will expand this as we need them. We try and reference the underlying papers clearly so that these algorithms are as clear as possible.
 
 ## Licence
 
