@@ -1,6 +1,6 @@
-import type {RngState} from "./state";
+import type { RngState } from "./state";
 
-import {lngamma} from "ieee745gamma";
+import { lngamma } from "ieee745gamma";
 
 /**
  * Generate Poisson distributed random number. This implementation
@@ -20,9 +20,7 @@ import {lngamma} from "ieee745gamma";
  * @param lambda The mean (and variance!) of the distribution
  */
 export function poisson(state: RngState, lambda: number) {
-    return lambda < 10 ?
-        poissonKnuth(state, lambda) :
-        poissonHormann(state, lambda);
+    return lambda < 10 ? poissonKnuth(state, lambda) : poissonHormann(state, lambda);
 }
 
 const MAX_I32 = 2 ** 31 - 1;
@@ -97,7 +95,7 @@ function poissonHormann(state: RngState, lambda: number) {
         const v = state.random();
 
         const uShifted = 0.5 - Math.abs(u);
-        const k = Math.floor((2 * a / uShifted + b) * u + lambda + 0.43);
+        const k = Math.floor(((2 * a) / uShifted + b) * u + lambda + 0.43);
 
         // When alpha * f(G(U)) * G'(U) is close to 1, it is possible to
         // find a rectangle (-u_r, u_r) x (0, v_r) under the curve, such
@@ -114,7 +112,7 @@ function poissonHormann(state: RngState, lambda: number) {
 
         // The expression below is equivalent to the computation of step 2)
         // in transformed rejection (v <= alpha * F'(G(u)) * G'(u)).
-        const s = Math.log(v * invAlpha / (a / (uShifted * uShifted) + b));
+        const s = Math.log((v * invAlpha) / (a / (uShifted * uShifted) + b));
         const t = -lambda + k * logRate - lngamma(k + 1);
         if (s <= t) {
             x = k;

@@ -1,13 +1,6 @@
-import {
-    getLabelPrinter,
-    matcherHint,
-    MatcherHintOptions,
-    printExpected,
-    printReceived,
-} from "jest-matcher-utils";
+import { getLabelPrinter, matcherHint, MatcherHintOptions, printExpected, printReceived } from "jest-matcher-utils";
 import { expect } from "vitest";
-import {approxEqual} from "./helpers";
-
+import { approxEqual } from "./helpers";
 
 expect.extend({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,23 +16,22 @@ expect.extend({
             const options: MatcherHintOptions = {
                 isNot,
                 promise: this.promise,
-                secondArgument: tolerance ? tolerance.toString() : "",
+                secondArgument: tolerance ? tolerance.toString() : ""
             };
 
-            const hint = matcherHint(name, "number", "number", options) +
-                "\n\n";
+            const hint = matcherHint(name, "number", "number", options) + "\n\n";
             return (
                 hint +
-                    printLabel(labelExpected) +
-                    (isNot ? "not " : " ") +
-                    printExpected(expected) +
-                    "\n" +
-                    printLabel(labelReceived) +
-                    (isNot ? "    " : " ") +
-                    printReceived(received)
+                printLabel(labelExpected) +
+                (isNot ? "not " : " ") +
+                printExpected(expected) +
+                "\n" +
+                printLabel(labelReceived) +
+                (isNot ? "    " : " ") +
+                printReceived(received)
             );
         };
 
-        return {message, pass};
-    },
+        return { message, pass };
+    }
 });

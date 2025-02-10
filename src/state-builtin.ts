@@ -1,4 +1,4 @@
-import {RngState} from "./state";
+import { RngState } from "./state";
 
 /**
  * Random number generator based on the `Math.random()` builtin, which

@@ -1,4 +1,4 @@
-import type {RngState} from "./state";
+import type { RngState } from "./state";
 
 /**
  * Generate a binomially-distributed random number; the number of
@@ -23,9 +23,7 @@ export function binomial(state: RngState, n: number, p: number) {
         return n;
     }
     const q = p <= 0.5 ? p : 1 - p;
-    const draw = n * q >= 10 ?
-        btrs(state, n, q) :
-        inversion(state, n, q);
+    const draw = n * q >= 10 ? btrs(state, n, q) : inversion(state, n, q);
     return p <= 0.5 ? draw : n - draw;
 }
 
@@ -48,7 +46,7 @@ function btrs(state: RngState, n: number, p: number) {
         const u = state.random() - 0.5;
         let v = state.random();
         const us = 0.5 - Math.abs(u);
-        const k = Math.floor((2 * a / us + b) * u + c);
+        const k = Math.floor(((2 * a) / us + b) * u + c);
 
         // Region for which the box is tight, and we
         // can return our calculated value This should happen
@@ -67,13 +65,15 @@ function btrs(state: RngState, n: number, p: number) {
         // This deviates from Hormann's BRTS algorithm, as there is a log missing.
         // For all (u, v) pairs outside of the bounding box, this calculates the
         // transformed-reject ratio.
-        v = Math.log(v * alpha / (a / (us * us) + b));
+        v = Math.log((v * alpha) / (a / (us * us) + b));
         const upperbound =
-            ((m + 0.5) * Math.log((m + 1) / (r * (n - m + 1))) +
-             (n + 1) * Math.log((n - m + 1) / (n - k + 1)) +
-             (k + 0.5) * Math.log(r * (n - k + 1) / (k + 1)) +
-             stirlingApproxTail(m) + stirlingApproxTail(n - m) -
-             stirlingApproxTail(k) - stirlingApproxTail(n - k));
+            (m + 0.5) * Math.log((m + 1) / (r * (n - m + 1))) +
+            (n + 1) * Math.log((n - m + 1) / (n - k + 1)) +
+            (k + 0.5) * Math.log((r * (n - k + 1)) / (k + 1)) +
+            stirlingApproxTail(m) +
+            stirlingApproxTail(n - m) -
+            stirlingApproxTail(k) -
+            stirlingApproxTail(n - k);
         if (v <= upperbound) {
             draw = k;
             break;
@@ -83,16 +83,8 @@ function btrs(state: RngState, n: number, p: number) {
 }
 
 const kTailValues = [
-    0.08106146679532733,
-    0.041340695955409457,
-    0.02767792568499805,
-    0.020790672103764951,
-    0.016644691189821703,
-    0.013876128823071987,
-    0.011896709945892425,
-    0.010411265261971892,
-    0.0092554621827094508,
-    0.0083305634333594725,
+    0.08106146679532733, 0.041340695955409457, 0.02767792568499805, 0.020790672103764951, 0.016644691189821703,
+    0.013876128823071987, 0.011896709945892425, 0.010411265261971892, 0.0092554621827094508, 0.0083305634333594725
 ];
 
 function stirlingApproxTail(k: number) {
@@ -123,7 +115,7 @@ function inversionCalc(u: number, n: number, p: number) {
     while (u >= f) {
         u -= f;
         k++;
-        f *= (g / k - r);
+        f *= g / k - r;
     }
 
     return k;

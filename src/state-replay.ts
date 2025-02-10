@@ -1,4 +1,4 @@
-import {RngState} from "./state";
+import { RngState } from "./state";
 
 /**
  * A non-random random number state, where the stream is replayed from

@@ -22,13 +22,11 @@ describe("can generate random numbers", () => {
     });
 
     it("requires at most one of seed and state to initialise", () => {
-        expect(() => new RngStateAlea(42, [1, 2, 3, 4]))
-            .toThrow("Can't provide both initial seed and state");
+        expect(() => new RngStateAlea(42, [1, 2, 3, 4])).toThrow("Can't provide both initial seed and state");
     });
 
     it("requires that state is correct length", () => {
-        expect(() => new RngStateAlea(null, [1, 2, 3]))
-            .toThrow("Expected state to have length 4 (but was 3)");
+        expect(() => new RngStateAlea(null, [1, 2, 3])).toThrow("Expected state to have length 4 (but was 3)");
     });
 
     it("can extract state from generator and seed a new one", () => {

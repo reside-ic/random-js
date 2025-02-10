@@ -1,8 +1,7 @@
 import { describe, it, expect } from "vitest";
-import {RngStateObserved} from "../src/state-observed";
+import { RngStateObserved } from "../src/state-observed";
 
-
-import {randomNormal} from "../src/normal";
+import { randomNormal } from "../src/normal";
 
 describe("Can observe random state", () => {
     it("Keeps track of the numbers as they're drawn", () => {

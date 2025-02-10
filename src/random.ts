@@ -83,5 +83,4 @@ export class Random {
     public uniform(min: number, max: number) {
         return uniform(this.state, min, max);
     }
-
 }

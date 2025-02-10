@@ -108,7 +108,7 @@ export class RngStateAlea extends RngState {
         const t = 2091639 * this.s0 + this.c * TWO_NEG_32;
         this.s0 = this.s1;
         this.s1 = this.s2;
-        return this.s2 = t - (this.c = t | 0);
+        return (this.s2 = t - (this.c = t | 0));
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
